@@ -1,0 +1,56 @@
+Enter the folder path: #####################################################
+Dlis file: 
+C:\Users\mario\Documents\github\dlis_investigation\data\IODP_311-U1325A_lwd-images-proc.dlis
+LogicalFile(RHOB)
+['TDEP', 'ROSI']
+[  8.93064    8.961121   8.9916   ... 358.47516  358.5056   358.5361  ]
+
+LogicalFile(Radius)
+['TDEP', 'DCRA']
+[  8.9916    9.144     9.2964  ... 358.1399  358.2923  358.44467]
+
+LogicalFile(PEF)
+['TDEP', 'PESI']
+[  8.93064    8.961121   8.9916   ... 358.47516  358.5056   358.5361  ]
+
+LogicalFile(VPEF)
+['TDEP', 'USC']
+[  8.9916    9.144     9.2964  ... 358.1399  358.2923  358.44467]
+
+LogicalFile(STOF)
+['TDEP', 'UOIM']
+[ -1260.  -1200.  -1140. ... 141000. 141060. 141120.]
+
+LogicalFile(GR_IMG)
+['TDEP', 'GR_RAB_IMG']
+[ -1260.  -1200.  -1140. ... 141000. 141060. 141120.]
+
+#####################################################
+#####################################################
+Dlis file: 
+C:\Users\mario\Documents\github\dlis_investigation\data\IODP_311-U1325A_rab-proc.dlis
+LogicalFile(RAB_shallow)
+['TDEP', 'BSIM', 'BSAV']
+[ -3.26136    -3.23088    -3.2003999 ... 358.47516   358.50565
+ 358.5361   ]
+
+['TDEP', 'DEVI', 'HAZI', 'RB', 'P1NO', 'P1AZ', 'GR']
+[ -1260.  -1200.  -1140. ... 141000. 141060. 141120.]
+
+LogicalFile(RAB_medium)
+['TDEP', 'BMIM', 'BMAV']
+[ -3.26136    -3.23088    -3.2003999 ... 358.47516   358.50565
+ 358.5361   ]
+
+['TDEP', 'DEVI', 'HAZI', 'RB', 'P1NO', 'P1AZ', 'GR']
+[ -1260.  -1200.  -1140. ... 141000. 141060. 141120.]
+
+LogicalFile(RAB_deep)
+['TDEP', 'BDIM', 'BDAV']
+[ -3.26136    -3.23088    -3.2003999 ... 358.47516   358.50565
+ 358.5361   ]
+
+['TDEP', 'DEVI', 'HAZI', 'RB', 'P1NO', 'P1AZ', 'GR']
+[ -1260.  -1200.  -1140. ... 141000. 141060. 141120.]
+
+#####################################################
