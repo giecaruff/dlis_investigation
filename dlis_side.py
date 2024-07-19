@@ -113,10 +113,27 @@ for file in os.listdir(folder):
                             channel_data["curves_L"].append(curves)
                         #print(channel_data["curves_name"])
                         #print(channel_data["curves_name"][0],":",channel_data["curves_L"][0][0],". . .",channel_data["curves_L"][0][1],'(',len(channel_data["curves_L"][0]),')')
+                        #print(channel_data["unit"])
                         #print()
                         for iii in range(len(channel_data["curves_name"])):
-                            log.write("{}: {} . . . {} ({})\n".format(channel_data["curves_name"][iii],channel_data["curves_L"][iii][0],channel_data["curves_L"][iii][1],np.shape(channel_data["curves_L"][iii])))
-                            local_log.write("{}: {} . . . {} ({})\n".format(channel_data["curves_name"][iii],channel_data["curves_L"][iii][0],channel_data["curves_L"][iii][1],np.shape(channel_data["curves_L"][iii])))
+                            curve_dim = len(np.shape(channel_data["curves_L"][iii]))
+                            if curve_dim == 1:
+                                top = channel_data["curves_L"][iii][0]
+                                bot = channel_data["curves_L"][iii][1]
+                            if curve_dim == 2:
+                                top = channel_data["curves_L"][iii][0][0]
+                                bot = channel_data["curves_L"][iii][-1][0]
+                            if curve_dim == 3:
+                                top = channel_data["curves_L"][iii][0][0][0]
+                                bot = channel_data["curves_L"][iii][-1][0][0]
+                            _name = channel_data["curves_name"][iii]
+                            _unit = channel_data["unit"][iii]
+                            _long = channel_data["longs"][iii]
+                            _shape = np.shape(channel_data["curves_L"][iii])
+                            log.write("{} ({}): [{}] {} . . . {} ({})\n".format(_name,_unit,_long,top,bot,_shape))
+                            local_log.write("{} ({}): [{}] {} . . . {} ({})\n".format(_name,_unit,_long,top,bot,_shape))
+                            #log.write("{}: {} . . . {} ({})\n".format(channel_data["curves_name"][iii],channel_data["curves_L"][iii][0],channel_data["curves_L"][iii][1],np.shape(channel_data["curves_L"][iii])))
+                            #local_log.write("{}: {} . . . {} ({})\n".format(channel_data["curves_name"][iii],channel_data["curves_L"][iii][0],channel_data["curves_L"][iii][1],np.shape(channel_data["curves_L"][iii])[0]))
 
                     frame_all[ii] = channel_data
         except:
