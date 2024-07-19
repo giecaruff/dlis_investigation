@@ -68,15 +68,16 @@ def process_curve_info(channel_data):
     return channel_data
 
 folder = input("Enter the folder path: ")
+print("operation started for folder: ",folder)
 
 log = open('LOG.txt', 'w')
 
 for file in os.listdir(folder):
     if file.endswith(".dlis"):
         dlis_file = os.path.join(folder, file)
-        print("#####################################################")
+        #print("#####################################################")
         log.write("#####################################################\n")
-        print("Dlis file name: ",dlis_file)
+        #print("Dlis file name: ",dlis_file)
         log.write("FILE NAME: {}\n".format(dlis_file))
         local_log = open(file+'local_log.txt', 'w')
 
@@ -85,7 +86,7 @@ for file in os.listdir(folder):
                 frame_all = {}
                 ii = 0
                 for f in files:
-                    print("Logical file:",f)
+                    #print("Logical file:",f)
                     log.write("\nLOGICAL FILE: {} \n".format(f))
                     log.write("-------------------------------------------------\n")
                     local_log.write("\nLOGICAL FILE: {} \n".format(f))
@@ -110,9 +111,9 @@ for file in os.listdir(folder):
                             channel_data["unit"].append(channel.units)
                             curves = channel.curves()
                             channel_data["curves_L"].append(curves)
-                        print(channel_data["curves_name"])
-                        print(channel_data["curves_name"][0],":",channel_data["curves_L"][0][0],". . .",channel_data["curves_L"][0][1],'(',len(channel_data["curves_L"][0]),')')
-                        print()
+                        #print(channel_data["curves_name"])
+                        #print(channel_data["curves_name"][0],":",channel_data["curves_L"][0][0],". . .",channel_data["curves_L"][0][1],'(',len(channel_data["curves_L"][0]),')')
+                        #print()
                         for iii in range(len(channel_data["curves_name"])):
                             log.write("{}: {} . . . {} ({})\n".format(channel_data["curves_name"][iii],channel_data["curves_L"][iii][0],channel_data["curves_L"][iii][1],np.shape(channel_data["curves_L"][iii])))
                             local_log.write("{}: {} . . . {} ({})\n".format(channel_data["curves_name"][iii],channel_data["curves_L"][iii][0],channel_data["curves_L"][iii][1],np.shape(channel_data["curves_L"][iii])))
@@ -122,5 +123,5 @@ for file in os.listdir(folder):
             print("!!! Error !!! reading file", dlis_file)
             continue
         
-        print("#####################################################")
+        print("done for file: ",dlis_file)
 
