@@ -117,6 +117,8 @@ for file in os.listdir(folder):
                         #print()
                         for iii in range(len(channel_data["curves_name"])):
                             curve_dim = len(np.shape(channel_data["curves_L"][iii]))
+                            top = "None"
+                            bot = "None"
                             if curve_dim == 1:
                                 top = channel_data["curves_L"][iii][0]
                                 bot = channel_data["curves_L"][iii][1]
@@ -126,6 +128,12 @@ for file in os.listdir(folder):
                             if curve_dim == 3:
                                 top = channel_data["curves_L"][iii][0][0][0]
                                 bot = channel_data["curves_L"][iii][-1][0][0]
+                            if curve_dim == 4:
+                                top = channel_data["curves_L"][iii][0][0][0][0]
+                                bot = channel_data["curves_L"][iii][-1][0][0][0]
+                            if curve_dim == 5:
+                                top = channel_data["curves_L"][iii][0][0][0][0][0]
+                                bot = channel_data["curves_L"][iii][-1][0][0][0][0]
                             _name = channel_data["curves_name"][iii]
                             _unit = channel_data["unit"][iii]
                             _long = channel_data["longs"][iii]
