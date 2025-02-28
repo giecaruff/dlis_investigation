@@ -26,5 +26,6 @@ REM Install another libraries
 call pip install scipy
 call pip install matplotlib
 call pip install pandas
+call pip install notebook
 
 pause

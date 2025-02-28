@@ -16,3 +16,5 @@ HUgeeeee thanks to Isabela Dantas de Albuquerque for all support and original in
 **5.** Correct in the `dlisinv_uff.bat` the paths to your PC.
 
 **6.** Run the `dlisinv_uff.bat` file.
+
+**7.** From prompt, the name of the environment is `dlisinv`.

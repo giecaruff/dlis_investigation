@@ -1,0 +1,4 @@
+- Entender melhor como é essa estrutura em nuvem.
+- esteira do jenkins, aks, sach e dask
+- versão das dependências, tanto frontend (javascript - package.json), python. Versão do banco de dados.
+- versão do node (virtual env info para isntalação).
