@@ -48,7 +48,7 @@ def parse_dlispy(file_path):
             ii += 1
 
     print(data_file)
-    #return all_data
+    #return data_file
 
 # Example usage
 file_path = 'data/IODP_311-U1325A_rab-proc.dlis'
