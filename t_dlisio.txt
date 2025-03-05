@@ -1,0 +1,36 @@
+Logical file: LogicalFile(RAB_shallow)
+Logical file: LogicalFile(RAB_medium)
+Logical file: LogicalFile(RAB_deep)
+0 level: dict_keys(['LogicalFile(RAB_shallow)', 'LogicalFile(RAB_medium)', 'LogicalFile(RAB_deep)'])
+1 level: dict_keys(['frames'])
+2 level: [{'frame_name': 'B77185', 'channels': [{'curves_name': 'TDEP', 'long_name': None, 'unit': 'm', 'curves_data': array([ -3.26136  ,  -3.23088  ,  -3.2003999, ..., 358.47516  ,
+       358.50565  , 358.5361   ], shape=(11871,), dtype=float32)}, {'curves_name': 'BSIM', 'long_name': 'Shallow Button Resistivity Image', 'unit': 'ohm.m', 'curves_data': array([[-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
+       [-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
+       [-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
+       ...,
+       [-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
+       [-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
+       [-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25]],
+      shape=(11871, 56), dtype=float32)}, {'curves_name': 'BSAV', 'long_name': 'Average Shallow Button Resistivity', 'unit': 'ohm.m', 'curves_data': array([-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
+      shape=(11871,), dtype=float32)}]}, {'frame_name': 'B77226', 'channels': [{'curves_name': 'TDEP', 'long_name': None, 'unit': '0.1 in', 'curves_data': array([ -1260.,  -1200.,  -1140., ..., 141000., 141060., 141120.],
+      shape=(2374,), dtype=float32)}, {'curves_name': 'DEVI', 'long_name': 'Hole Deviation', 'unit': 'deg', 'curves_data': array([-639.25, -639.25, -639.25, ..., -639.25, -639.25, -639.25],
+      shape=(2374,), dtype=float32)}, {'curves_name': 'HAZI', 'long_name': 'Hole Azimuth', 'unit': 'deg', 'curves_data': array([-639.25, -639.25, -639.25, ..., -639.25, -639.25, -639.25],
+      shape=(2374,), dtype=float32)}, {'curves_name': 'RB', 'long_name': 'Relative Bearing', 'unit': 'deg', 'curves_data': array([-639.25, -639.25, -639.25, ..., -639.25, -639.25, -639.25],
+      shape=(2374,), dtype=float32)}, {'curves_name': 'P1NO', 'long_name': 'Pad 1 Rotation Relative to North Azimuth', 'unit': 'deg', 'curves_data': array([-639.25, -639.25, -639.25, ..., -639.25, -639.25, -639.25],
+      shape=(2374,), dtype=float32)}, {'curves_name': 'P1AZ', 'long_name': 'Pad 1 Azimuth', 'unit': 'deg', 'curves_data': array([-639.25, -639.25, -639.25, ..., -639.25, -639.25, -639.25],
+      shape=(2374,), dtype=float32)}, {'curves_name': 'GR', 'long_name': 'Gamma Ray', 'unit': 'gAPI', 'curves_data': array([-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
+      shape=(2374,), dtype=float32)}]}]
+3 level: dict_keys(['frame_name', 'channels'])
+4 level: [{'curves_name': 'TDEP', 'long_name': None, 'unit': 'm', 'curves_data': array([ -3.26136  ,  -3.23088  ,  -3.2003999, ..., 358.47516  ,
+       358.50565  , 358.5361   ], shape=(11871,), dtype=float32)}, {'curves_name': 'BSIM', 'long_name': 'Shallow Button Resistivity Image', 'unit': 'ohm.m', 'curves_data': array([[-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
+       [-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
+       [-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
+       ...,
+       [-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
+       [-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
+       [-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25]],
+      shape=(11871, 56), dtype=float32)}, {'curves_name': 'BSAV', 'long_name': 'Average Shallow Button Resistivity', 'unit': 'ohm.m', 'curves_data': array([-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
+      shape=(11871,), dtype=float32)}]
+5 level: dict_keys(['curves_name', 'long_name', 'unit', 'curves_data'])
+6 level: [-3.26136   -3.23088   -3.2003999 -3.16992   -3.1394398 -3.10896
+ -3.07848   -3.0479999 -3.01752   -2.98704  ]
