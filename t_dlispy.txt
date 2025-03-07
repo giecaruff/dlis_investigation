@@ -1,20 +1,60 @@
-{'RAB_shallow': {'B77185': {'TDEP': {'unit': 'm', 'values': array([ -3.26135993,  -3.23088002,  -3.20039988, ..., 358.47515869,
-       358.50564575, 358.53610229], shape=(11871,))}, 'BSIM': {'unit': 'ohm.m', 'values': array([[-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
-       [-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
-       [-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
-       ...,
-       [-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
-       [-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
-       [-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25]],
-      shape=(11871, 56))}, 'BSAV': {'unit': 'ohm.m', 'values': array([-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
+Logical Files Found: 3
+
+==========================
+Logical File: LogicalFile(RAB_shallow)
+Total Frames: 2
+ - Frame Name: B77185, Channels: 3
+   * Mnemonic: TDEP, 	 Units: m
+   * Mnemonic: BSIM, 	 Units: ohm.m
+   * Mnemonic: BSAV, 	 Units: ohm.m
+ - Frame Name: B77226, Channels: 7
+   * Mnemonic: TDEP, 	 Units: 0.1 in
+   * Mnemonic: DEVI, 	 Units: deg
+   * Mnemonic: HAZI, 	 Units: deg
+   * Mnemonic: RB, 	 Units: deg
+   * Mnemonic: P1NO, 	 Units: deg
+   * Mnemonic: P1AZ, 	 Units: deg
+   * Mnemonic: GR, 	 Units: gAPI
+
+==========================
+Logical File: LogicalFile(RAB_medium)
+Total Frames: 2
+ - Frame Name: B77185, Channels: 3
+   * Mnemonic: TDEP, 	 Units: m
+   * Mnemonic: BMIM, 	 Units: ohm.m
+   * Mnemonic: BMAV, 	 Units: ohm.m
+ - Frame Name: B77226, Channels: 7
+   * Mnemonic: TDEP, 	 Units: 0.1 in
+   * Mnemonic: DEVI, 	 Units: deg
+   * Mnemonic: HAZI, 	 Units: deg
+   * Mnemonic: RB, 	 Units: deg
+   * Mnemonic: P1NO, 	 Units: deg
+   * Mnemonic: P1AZ, 	 Units: deg
+   * Mnemonic: GR, 	 Units: gAPI
+
+==========================
+Logical File: LogicalFile(RAB_deep)
+Total Frames: 2
+ - Frame Name: B77185, Channels: 3
+   * Mnemonic: TDEP, 	 Units: m
+   * Mnemonic: BDIM, 	 Units: ohm.m
+   * Mnemonic: BDAV, 	 Units: ohm.m
+ - Frame Name: B77226, Channels: 7
+   * Mnemonic: TDEP, 	 Units: 0.1 in
+   * Mnemonic: DEVI, 	 Units: deg
+   * Mnemonic: HAZI, 	 Units: deg
+   * Mnemonic: RB, 	 Units: deg
+   * Mnemonic: P1NO, 	 Units: deg
+   * Mnemonic: P1AZ, 	 Units: deg
+   * Mnemonic: GR, 	 Units: gAPI
+
+
+{'LogicalFile(RAB_shallow)': {'B77185': {'TDEP': {'unit': 'm', 'values': array([ -3.26135993,  -3.23088002,  -3.20039988, ..., 358.47515869,
+       358.50564575, 358.53610229], shape=(11871,))}, 'BSAV': {'unit': 'ohm.m', 'values': array([-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
       shape=(11871,))}}, 'B77226': {'TDEP': {'unit': '0.1 in', 'values': array([ -1260.,  -1200.,  -1140., ..., 141000., 141060., 141120.],
-      shape=(2374,))}, 'DEVI': {'unit': 'deg', 'values': array([-639.25, -639.25, -639.25, ..., -639.25, -639.25, -639.25],
-      shape=(2374,))}, 'HAZI': {'unit': 'deg', 'values': array([-639.25, -639.25, -639.25, ..., -639.25, -639.25, -639.25],
       shape=(2374,))}, 'RB': {'unit': 'deg', 'values': array([-639.25, -639.25, -639.25, ..., -639.25, -639.25, -639.25],
-      shape=(2374,))}, 'P1NO': {'unit': 'deg', 'values': array([-639.25, -639.25, -639.25, ..., -639.25, -639.25, -639.25],
-      shape=(2374,))}, 'P1AZ': {'unit': 'deg', 'values': array([-639.25, -639.25, -639.25, ..., -639.25, -639.25, -639.25],
       shape=(2374,))}, 'GR': {'unit': 'gAPI', 'values': array([-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
-      shape=(2374,))}}}, 'RAB_medium': {'B77185': {'TDEP': {'unit': 'm', 'values': array([ -3.26135993,  -3.23088002,  -3.20039988, ..., 358.47515869,
+      shape=(2374,))}}}, 'LogicalFile(RAB_medium)': {'B77185': {'TDEP': {'unit': 'm', 'values': array([ -3.26135993,  -3.23088002,  -3.20039988, ..., 358.47515869,
        358.50564575, 358.53610229], shape=(11871,))}, 'BMIM': {'unit': 'ohm.m', 'values': array([[-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
        [-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
        [-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
@@ -22,28 +62,8 @@
        [-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
        [-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
        [-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25]],
-      shape=(11871, 56))}, 'BMAV': {'unit': 'ohm.m', 'values': array([-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
-      shape=(11871,))}}, 'B77226': {'TDEP': {'unit': '0.1 in', 'values': array([ -1260.,  -1200.,  -1140., ..., 141000., 141060., 141120.],
-      shape=(2374,))}, 'DEVI': {'unit': 'deg', 'values': array([-639.25, -639.25, -639.25, ..., -639.25, -639.25, -639.25],
-      shape=(2374,))}, 'HAZI': {'unit': 'deg', 'values': array([-639.25, -639.25, -639.25, ..., -639.25, -639.25, -639.25],
-      shape=(2374,))}, 'RB': {'unit': 'deg', 'values': array([-639.25, -639.25, -639.25, ..., -639.25, -639.25, -639.25],
-      shape=(2374,))}, 'P1NO': {'unit': 'deg', 'values': array([-639.25, -639.25, -639.25, ..., -639.25, -639.25, -639.25],
-      shape=(2374,))}, 'P1AZ': {'unit': 'deg', 'values': array([-639.25, -639.25, -639.25, ..., -639.25, -639.25, -639.25],
+      shape=(11871, 56))}}, 'B77226': {'TDEP': {'unit': '0.1 in', 'values': array([ -1260.,  -1200.,  -1140., ..., 141000., 141060., 141120.],
       shape=(2374,))}, 'GR': {'unit': 'gAPI', 'values': array([-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
-      shape=(2374,))}}}, 'RAB_deep': {'B77185': {'TDEP': {'unit': 'm', 'values': array([ -3.26135993,  -3.23088002,  -3.20039988, ..., 358.47515869,
-       358.50564575, 358.53610229], shape=(11871,))}, 'BDIM': {'unit': 'ohm.m', 'values': array([[-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
-       [-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
-       [-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
-       ...,
-       [-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
-       [-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
-       [-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25]],
-      shape=(11871, 56))}, 'BDAV': {'unit': 'ohm.m', 'values': array([-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
-      shape=(11871,))}}, 'B77226': {'TDEP': {'unit': '0.1 in', 'values': array([ -1260.,  -1200.,  -1140., ..., 141000., 141060., 141120.],
-      shape=(2374,))}, 'DEVI': {'unit': 'deg', 'values': array([-639.25, -639.25, -639.25, ..., -639.25, -639.25, -639.25],
-      shape=(2374,))}, 'HAZI': {'unit': 'deg', 'values': array([-639.25, -639.25, -639.25, ..., -639.25, -639.25, -639.25],
-      shape=(2374,))}, 'RB': {'unit': 'deg', 'values': array([-639.25, -639.25, -639.25, ..., -639.25, -639.25, -639.25],
-      shape=(2374,))}, 'P1NO': {'unit': 'deg', 'values': array([-639.25, -639.25, -639.25, ..., -639.25, -639.25, -639.25],
-      shape=(2374,))}, 'P1AZ': {'unit': 'deg', 'values': array([-639.25, -639.25, -639.25, ..., -639.25, -639.25, -639.25],
+      shape=(2374,))}}}, 'LogicalFile(RAB_deep)': {'B77226': {'TDEP': {'unit': '0.1 in', 'values': array([ -1260.,  -1200.,  -1140., ..., 141000., 141060., 141120.],
       shape=(2374,))}, 'GR': {'unit': 'gAPI', 'values': array([-999.25, -999.25, -999.25, ..., -999.25, -999.25, -999.25],
       shape=(2374,))}}}}
