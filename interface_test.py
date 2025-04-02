@@ -1,21 +1,26 @@
 import json
-import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
-from matplotlib.widgets import CheckButtons, Button
+from matplotlib.widgets import CheckButtons, Slider
+import pandas as pd
+import numpy as np
 
-# ---------------------------------------------------------------------------------------- #
+# Constants
+ROWS_PER_PAGE = 30
+LIGHT_BLUE = (0.85, 0.92, 1)  # Light blue shade for text background
 
-def dict_to_dataframe(data):
+def load_json_data(filename):
+    with open(filename, 'r') as f:
+        return json.load(f)
+
+def _dict_to_dataframe(data):
     rows = []
     for digital_file, frames in data.items():
         for frame_name, mnemonics in frames.items():
-            for mnemonic in mnemonics:  # Each mnemonic gets its own row
+            for mnemonic in mnemonics:
                 rows.append([digital_file, frame_name, mnemonic])
-    df = pd.DataFrame(rows, columns=["Digital File", "Frame Name", "Mnemonics"])
-    return df
+    return pd.DataFrame(rows, columns=["Digital File", "Frame Name", "Mnemonics"])
 
-def dataframe_to_dict(df):
+def _dataframe_to_dict(df):
     data = {}
     for digital_file, frame_group in df.groupby("Digital File"):
         data[digital_file] = {}
@@ -23,77 +28,81 @@ def dataframe_to_dict(df):
             data[digital_file][frame_name] = mnemonics_group["Mnemonics"].tolist()
     return data
 
-# ---------------------------------------------------------------------------------------- #
+# Load data
+info = load_json_data(r"data\data_vis.json")
+table = _dict_to_dataframe(info)
 
-with open("data/data_vis.json", 'r') as json_file:
-    dlis_data_structure = json.load(json_file)
+# Calculate number of pages needed
+total_rows = len(table)
+num_pages = (total_rows + ROWS_PER_PAGE - 1) // ROWS_PER_PAGE  # Ceiling division
 
-# Convert JSON to DataFrame
-table = dict_to_dataframe(dlis_data_structure)
-num_rows = len(table)
-rows_per_page = 50
-num_pages = (num_rows // rows_per_page) + (1 if num_rows % rows_per_page else 0)
-
-# Pagination Variables
-current_page = 0
-checkbox_states = [False] * len(table)
-
-# ---------------------------------------------------------------------------------------- #
-
-# Function to update the displayed checkboxes
-def update_checkboxes():
-    global checkboxes
-    start_idx = current_page * rows_per_page
-    end_idx = min(start_idx + rows_per_page, num_rows)
-    checkbox_labels = [', '.join(row) for row in table.iloc[start_idx:end_idx].values]
-
-    # Remove previous checkboxes
-    checkbox_ax.clear()
-    checkbox_ax.set_position([0.3, 0.2, 0.4, 0.7])
-    
-    # Create new checkboxes
-    checkboxes = CheckButtons(checkbox_ax, checkbox_labels, checkbox_states[start_idx:end_idx])
-    checkboxes.on_clicked(toggle_row)
-    
-    fig.canvas.draw_idle()
-
-# Toggle checkbox selection
-def toggle_row(label):
-    index = table.apply(lambda row: ', '.join(row), axis=1).tolist().index(label)
-    checkbox_states[index] = not checkbox_states[index]
-    print(f'{label} is {"checked" if checkbox_states[index] else "unchecked"}')
-
-# Navigation Functions
-def next_page(event):
-    global current_page
-    if current_page < num_pages - 1:
-        current_page += 1
-        update_checkboxes()
-
-def prev_page(event):
-    global current_page
-    if current_page > 0:
-        current_page -= 1
-        update_checkboxes()
-
-# ---------------------------------------------------------------------------------------- #
-
-# Create Figure
-fig, ax = plt.subplots(figsize=(8, 10))
+# Create figure with appropriate height
+fig_height = max(6, min(ROWS_PER_PAGE, total_rows) * 0.3)
+fig, ax = plt.subplots(figsize=(9, fig_height))  # Adjust size
+plt.subplots_adjust(left=0.2)  # Make room for the vertical slider
 ax.axis('off')
 
-# Checkboxes
-checkbox_ax = fig.add_axes([0.3, 0.2, 0.4, 0.7])  # Adjust position
-update_checkboxes()  # Initialize first page
+# Create vertical slider axis
+slider_ax = plt.axes([0.25, 0.13, 0.05, 0.73])  # (left, bottom, width, height)
+page_slider = Slider(slider_ax, 'Page', valmin = 1, valmax = num_pages, valinit=num_pages, valstep=1, orientation='vertical')
 
-# Buttons
-btn_next_ax = fig.add_axes([0.7, 0.05, 0.2, 0.075])
-btn_prev_ax = fig.add_axes([0.1, 0.05, 0.2, 0.075])
+# Create checkbox axis (will be updated)
+checkbox_ax = plt.axes([0.2, 0.1, 0.7, 0.8])  # (left, bottom, width, height)
+checkbox_ax.set_axis_off()
 
-btn_next = Button(btn_next_ax, "Next")
-btn_prev = Button(btn_prev_ax, "Previous")
+# Store all checkbox states and labels globally
+all_checkbox_states = [False] * total_rows
+checkbox_labels_all = [', '.join(row) for row in table.values]
+current_checkboxes = None
 
-btn_next.on_clicked(next_page)
-btn_prev.on_clicked(prev_page)
+def update_checkboxes(page):
+    global current_checkboxes
+    
+    # Clear previous checkboxes
+    checkbox_ax.clear()
+    checkbox_ax.set_axis_off()
+    
+    # Calculate current page range (reversed order)
+    page_idx = int(num_pages - page)  # This reverses the page order
+    start_idx = page_idx * ROWS_PER_PAGE
+    end_idx = min(start_idx + ROWS_PER_PAGE, total_rows)
+    
+    # Get current page labels and states
+    current_labels = checkbox_labels_all[start_idx:end_idx]
+    current_states = all_checkbox_states[start_idx:end_idx]
+    
+    # Create new checkboxes
+    current_checkboxes = CheckButtons(checkbox_ax, current_labels, current_states)
+    
+    # Apply alternating row colors
+    for i, label in enumerate(current_checkboxes.labels):
+        if i % 2 == 1:  # Apply light blue to every second row
+            label.set_backgroundcolor(LIGHT_BLUE)
+        else:
+            label.set_backgroundcolor('white')  # Keep other rows white
+        label.set_color('black')  # Set text color to black for contrast
+
+    def toggle_row(label):
+        global all_checkbox_states
+        full_index = checkbox_labels_all.index(label)
+        all_checkbox_states[full_index] = not all_checkbox_states[full_index]
+        print(f'{label} is {"checked" if all_checkbox_states[full_index] else "unchecked"}')
+
+    current_checkboxes.on_clicked(toggle_row)
+    plt.draw()
+
+# Initialize first page
+update_checkboxes(1)
+
+# Connect slider to update function
+page_slider.on_changed(update_checkboxes)
 
 plt.show()
+
+# After closing the window, get selected rows
+selected_rows = [i for i, checked in enumerate(all_checkbox_states) if checked]
+selected_table = table.iloc[selected_rows]
+dict_data_info = _dataframe_to_dict(selected_table)
+print(f"Selected {len(selected_table)} rows")
+print("Selected rows data:")
+print(dict_data_info)
