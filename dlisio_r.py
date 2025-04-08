@@ -141,6 +141,8 @@ class DLISAccess:
         ax.axis('off')
 
         # Create vertical slider axis
+        global page_slider
+        global slider_ax
         slider_ax = plt.axes([0.25, 0.13, 0.05, 0.73])  # (left, bottom, width, height)
         page_slider = Slider(slider_ax, 'Page', valmin = 1, valmax = num_pages, valinit=num_pages, valstep=1, orientation='vertical', color=DARK_COLOR)
 
