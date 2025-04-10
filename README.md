@@ -18,3 +18,9 @@ HUgeeeee thanks to Isabela Dantas de Albuquerque for all support and original in
 **6.** Run the `dlisinv_uff.bat` file.
 
 **7.** From prompt, the name of the environment is `dlisinv`.
+
+## Dlisio vital parts:
+
+- **FRAME** https://github.com/equinor/dlisio/blob/master/python/dlisio/dlis/frame.py
+
+- **CHANNEL** https://github.com/equinor/dlisio/blob/master/python/dlisio/dlis/channel.py
