@@ -5,14 +5,25 @@ from dlisio import dlis  # Correct library import
 import pandas as pd
 
 class DLISAccess:
-    def __init__(self, filename):
+    def __init__(self, filename, vis=True):
         self.filename = filename
         self.data = None
         self.metadata = None
         
-        dlis_dict_headers = self._dlis_info(filename, verbose=False)
-        self.dlis_dataframe_headers = self._dict_to_dataframe(dlis_dict_headers)
-        self._preview_data(self.dlis_dataframe_headers)
+        self.dlis_dict_headers = self._dlis_info(filename, verbose=False)
+        self.dlis_dataframe_headers = self._dict_to_dataframe(self.dlis_dict_headers)
+        if vis:
+            self._preview_data(self.dlis_dataframe_headers)
+        
+    def get_info(self):
+        return self.dlis_dict_headers
+        
+    def get_data(self):
+        selected_rows = [i for i, checked in enumerate(ALL_CHECKBOX_STATES) if checked]
+        selected_table = self.dlis_dataframe_headers.iloc[selected_rows]
+        dict_data_info = self._dataframe_to_dict(selected_table)
+        data = self._parse_dlis(self.filename, dict_data_info)
+        return data
         
     def preview(self):
         selected_rows = [i for i, checked in enumerate(ALL_CHECKBOX_STATES) if checked]
@@ -33,20 +44,24 @@ class DLISAccess:
                     if isinstance(details, dict):
                         unit = details.get('unit', 'N/A')
                         dim = details.get('dim', 'N/A')
+                        min_val = details.get('min', 'N/A')
+                        max_val = details.get('max', 'N/A')
                     else:
                         unit = 'N/A'
                         dim = 'N/A'
 
                     rows.append([
-                        digital_file,
-                        frame_name,
-                        mnemonic,
-                        unit,
-                        dim+'D'
-                    ])
+                    digital_file,
+                    frame_name,
+                    mnemonic,
+                    unit,
+                    dim + 'D',
+                    min_val,
+                    max_val
+                ])
         return pd.DataFrame(
             rows,
-            columns=["Digital File", "Frame Name", "Mnemonics", "Unit", "Dimension"]
+            columns=["Digital File", "Frame Name", "Mnemonics", "Unit", "Dimension", "Min", "Max"]
         )
         
     # ==================================================================== #
@@ -98,11 +113,17 @@ class DLISAccess:
                         unit = channel.units
                         values = np.array(channel.curves())
                         dim = str(values.ndim)
+                        if values.dtype == 'float16' or values.dtype == 'float32' or values.dtype == 'float64':
+                            values[values <= -999.] = np.nan
+                        min_val = np.nanmin(values)
+                        max_val = np.nanmax(values)
                         
                         # New structure with units and dimensions
                         all_data[logical_file_id][frame_id][mnemonic] = {
                             'unit': unit,
-                            'dim': dim
+                            'dim': dim,
+                            'min': min_val,
+                            'max': max_val
                         }
                         
                         # Old-style structure (just mnemonics)
@@ -152,7 +173,10 @@ class DLISAccess:
 
         # Store all checkbox states and labels globally
         ALL_CHECKBOX_STATES = [False] * total_rows
-        self.checkbox_labels_all = ['| '.join(row) for row in table.values]
+        self.checkbox_labels_all = [
+            f"{row[0]} | {row[1]} | {row[2]} ( {row[5]:.2f} | {row[6]:.2f} ) [ {row[3]} ] - {row[4]}"
+            for row in table.values
+        ]
         current_checkboxes = None
 
         def update_checkboxes(page):
