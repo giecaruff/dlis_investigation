@@ -199,10 +199,10 @@ class DLISAccess:
 dl = DLISAccess(r"C:\Users\mario\Desktop\1-brsa-1363-rjs.dlis")
 
 a = dl.show_header()
-#print(a)
+print(a)
 
 b = dl.mnemonics()
-#print(b)
+print(b)
 
-data = dl.extract(["MD", "BS", "TVD", "TVDSS","CS","DTCO", "DCAL"])
-dl.export_csv(data, output_path="./output")
+#data = dl.extract(["MD", "BS", "TVD", "TVDSS","CS","DTCO", "DCAL"])
+#dl.export_csv(data, output_path="./output")
