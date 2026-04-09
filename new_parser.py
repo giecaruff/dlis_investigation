@@ -4,8 +4,10 @@ import pandas as pd
 import os
 
 class DLISAccess:
+    """Class to access and extract data from DLIS files using dlisio library."""
 
     def __init__(self, filename):
+        """"Initialize DLISAccess with the given filename and scan the header."""
 
         self.filename = filename
         self.header = self._scan_header()
