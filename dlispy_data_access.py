@@ -68,7 +68,9 @@ def inspect_dlispy_structure(file_path):
                 print(f"   * Mnemonic: {mnemonic}, \t Units: {unit}")
 
 # Call the function
-inspect_dlispy_structure('data/IODP_311-U1325A_rab-proc.dlis')
+inspect_dlispy_structure(r'data\DSDP_leg_96_hole_616_96_processed_data.dlis')
+
+quit()
                
 ########################################################################################
 
